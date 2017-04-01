@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export class FlightsServiceConfig {
-  apiBasePath = 'www.flights-buddy.com:xxx/flights';
+  apiBasePath: String = 'www.flights-buddy.com:xxx/flights';
 }
 
 @Injectable()
