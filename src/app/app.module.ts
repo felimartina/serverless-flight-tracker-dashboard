@@ -1,7 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+
+/* Main Routing Module */
+import { AppRoutingModule } from './app-routing.module';
+
+/* Core Module imports main services and common features that run at root level*/
+import { CoreModule } from './core/core.module';
+
+/* Feature modules */
+import { FlightsModule } from './flights/flights.module';
 
 import { AppComponent } from './app.component';
 
@@ -11,8 +18,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+    AppRoutingModule,
+    CoreModule,
+    FlightsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
