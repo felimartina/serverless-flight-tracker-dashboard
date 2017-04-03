@@ -10,8 +10,14 @@ import { FlightsService } from './services/flights/flights.service';
 import { FlightsServiceConfig } from './services/flights/flights.service';
 import { UserService } from './services/user/user.service';
 
+/* Vendor Modules */
+import { AlertModule, DatepickerModule } from 'ng2-bootstrap';
+
 @NgModule({
-  imports: [],
+  imports: [
+    AlertModule.forRoot(),
+    DatepickerModule.forRoot(),
+  ],
   declarations: [],
   providers: [
     FlightsService,
@@ -30,17 +36,17 @@ export class CoreModule {
     }
   }
 
-/**
- * Allows importers to provide specifc configurations for the provided services
- * @param {FlightsServiceConfig} flightsServiceConfig
- * Refer to the following link for an explanation of why this is a good practice:
- * https://angular.io/docs/ts/latest/guide/ngmodule.html#!#configure-core-services-with-_coremodule-forroot_
- */
+  /**
+   * Allows importers to provide specifc configurations for the provided services
+   * @param {FlightsServiceConfig} flightsServiceConfig
+   * Refer to the following link for an explanation of why this is a good practice:
+   * https://angular.io/docs/ts/latest/guide/ngmodule.html#!#configure-core-services-with-_coremodule-forroot_
+   */
   static forRoot(flightsServiceConfig: FlightsServiceConfig): ModuleWithProviders {
     return {
       ngModule: CoreModule,
       providers: [
-        {provide: FlightsServiceConfig, useValue: flightsServiceConfig }
+        { provide: FlightsServiceConfig, useValue: flightsServiceConfig }
       ]
     };
   }
