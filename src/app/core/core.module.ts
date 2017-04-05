@@ -13,7 +13,7 @@ import { UserService } from '../services/user/user.service';
 /* Vendor Modules */
 import { AlertModule, DatepickerModule } from 'ng2-bootstrap';
 
-import { User } from '../models/user'
+import { User, Flight, Airport } from '../models'
 
 @NgModule({
   imports: [
@@ -31,29 +31,49 @@ export class CoreModule {
      Refer to the following link for an explanation of why this is a good practice:
      https://angular.io/docs/ts/latest/guide/ngmodule.html#!#prevent-reimport-of-the-_coremodule_
    */
-  constructor( @Optional() @SkipSelf() parentModule: CoreModule, userService: UserService) {
+  constructor(
+    @Optional() @SkipSelf() parentModule: CoreModule,
+    userService: UserService,
+    flightsService: FlightsService) {
     if (parentModule) {
       throw new Error(
         'CoreModule is already loaded. Import it in the AppModule only.');
     }
 
-    // login user
-    if (1 === 1) {
+    let user1 = new User({
+      avatarUrl: 'public/assets/img/user2-160x160.jpg',
+      email: 'feli.martina@gmail.com',
+      firstname: 'Pipe',
+      lastname: 'Martina'
+    });
 
-      let user1 = new User({
-        avatarUrl: 'public/assets/img/user2-160x160.jpg',
-        email: 'feli.martina@gmail.com',
-        firstname: 'Pipe',
-        lastname: 'Martina'
-      });
+    user1.connected = true;
+    userService.setCurrentUser(user1);
+    const airports = [
+      new Airport({name: 'Ingeniero Travela', code: 'COR', city: 'Córdoba', country: 'Argentina'}),
+      new Airport({name: 'Honolulu', code: 'HNL', city: 'Honolulu', country: 'USA'}),
+    ]
 
-      user1.connected = true;
-
-      userService.setCurrentUser(user1);
-    } else {
-      // je recupere l'erreur du php
-      // et on le place dans un label, ou un toaster
-    }
+    flightsService.flights = [
+      new Flight({
+        from: airports[0],
+        to: airports[1],
+        inbound: new Date(),
+        outbound: null,
+      }),
+      new Flight({
+        from: airports[0],
+        to: airports[1],
+        inbound: new Date(),
+        outbound: new Date(),
+      }),
+      new Flight({
+        from: airports[1],
+        to: airports[0],
+        inbound: new Date(),
+        outbound: null,
+      }),
+    ]
   }
 
   /**

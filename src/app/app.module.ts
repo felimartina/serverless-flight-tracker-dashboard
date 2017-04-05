@@ -41,7 +41,7 @@ let widgets = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule,
+    CoreModule.forRoot({apiBasePath: 'TODO'}),
     FlightsModule,
     TranslateModule.forRoot({
         deps: [Http],

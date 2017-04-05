@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FlightsService } from '../../../services/flights/flights.service'
+import { Flight } from '../../../models/flight'
 
 @Component({
   selector: 'app-flights-list',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./flights-list.component.css']
 })
 export class FlightsListComponent implements OnInit {
-
-  constructor() { }
+  public flights: Flight[]
+  constructor(flightsService: FlightsService) {
+    this.flights = flightsService.flights;
+  }
 
   ngOnInit() {
   }
