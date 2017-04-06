@@ -6,10 +6,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+/* MomentJS for Angular */
+import { MomentModule } from 'angular2-moment';
 
 @NgModule({
-  imports: [],
+  imports: [MomentModule],
   declarations: [],
-  exports: [CommonModule, FormsModule]
+  exports: [
+    CommonModule,
+    FormsModule,
+    MomentModule,
+  ]
 })
 export class SharedModule { }

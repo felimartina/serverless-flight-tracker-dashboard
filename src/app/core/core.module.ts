@@ -6,13 +6,12 @@
 import { NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
 
 /* App Services */
-import { FlightsService } from '../services/flights/flights.service';
-import { FlightsServiceConfig } from '../services/flights/flights.service';
-import { UserService } from '../services/user/user.service';
+import { UserService, FlightsService, FlightsServiceConfig, SectionHeaderService} from '../services';
 
 /* Vendor Modules */
 import { AlertModule, DatepickerModule } from 'ng2-bootstrap';
 
+/* Temporary models for bootstraping the app */
 import { User, Flight, Airport } from '../models'
 
 @NgModule({
@@ -24,7 +23,9 @@ import { User, Flight, Airport } from '../models'
   providers: [
     FlightsService,
     UserService,
-  ]
+    SectionHeaderService,
+  ],
+  exports: []
 })
 export class CoreModule {
   /* Prevent CoreModule from being instanced multiple times.

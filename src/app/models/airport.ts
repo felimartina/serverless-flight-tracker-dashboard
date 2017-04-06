@@ -14,6 +14,6 @@ export class Airport {
     }
 
     public toString() {
-        return `${this.name}, ${this.country} (${this.code})`;
+        return `${this.city}, ${this.country} (${this.code})`;
     }
 }

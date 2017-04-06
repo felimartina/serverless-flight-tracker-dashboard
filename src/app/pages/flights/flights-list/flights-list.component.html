@@ -1,5 +1,20 @@
-<ul>
-  <li *ngFor="let flight of flights">
-    {{ flight.toString() }}
-  </li>
-</ul>
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>From</th>
+          <th>To</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let flight of flights">
+          <td>{{ flight.from }}</td>
+          <td>{{ flight.to }}</td>
+          <td>{{ flight.inbound | amDateFormat: 'MM/DD/YYYY'}} <span *ngIf="flight.outbound">- {{ flight.outbound | amDateFormat: 'MM/DD/YYYY'}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

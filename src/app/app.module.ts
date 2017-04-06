@@ -17,7 +17,7 @@ import { AppFooterComponent } from './widgets/app-footer';
 import { MenuAsideComponent } from './widgets/menu-aside';
 import { NotificationBoxComponent } from './widgets/notification-box';
 import { UserBoxComponent } from './widgets/user-box';
-import { BreadcrumbComponent } from './widgets/breadcrumb';
+import { SectionHeaderComponent } from './widgets/section-header';
 
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 export function createTranslateLoader( http: Http ) {
@@ -26,7 +26,7 @@ export function createTranslateLoader( http: Http ) {
 
 let widgets = [
     AppComponent,
-    BreadcrumbComponent,
+    SectionHeaderComponent,
     AppHeaderComponent,
     AppFooterComponent,
     MenuAsideComponent,

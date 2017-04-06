@@ -12,6 +12,6 @@ export class Flight {
   }
 
   public toString() {
-    return `From (${this.from.toString()}), To (${this.to.toString()})`;
+    return `From ${this.from.toString()}, To ${this.to.toString()}`;
   }
 }
